@@ -9,21 +9,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Chosen Palette: Earthy Modern (Warm Cream background, Charcoal text, Moss Green accent) -->
-    <!-- Application Structure Plan: A single-page portfolio design with a top navigation bar for smooth scrolling. The structure includes: a Hero section for immediate impact, an interactive timeline for work experience with filtering (YouTube/Crypto), a visual grid for skills, an animated key stat highlight (100k+ subscribers), and a clear contact section. This non-linear, interactive structure was chosen to allow recruiters to quickly find the information most relevant to them (e.g., filtering for only crypto experience) and to present the candidate's qualifications in a more dynamic and memorable way than a static resume. -->
-    <!-- Visualization & Content Choices: 
-    - Profile: Inform -> Text block -> N/A -> Direct and clear introduction. -> HTML.
-    - Skills: Organize -> Icon+Text Grid -> Hover effects -> Visually appealing and avoids misleading self-assessed skill bars. -> HTML/Tailwind.
-    - Experience: Organize/Change -> Interactive Vertical Timeline -> Click to expand details, Filter buttons (All/YouTube/Crypto) -> Allows progressive disclosure and user-driven content filtering, making it easy to digest and focus on relevant roles. -> JS Data Object + DOM Manipulation.
-    - Experience Summary: Compare -> Bar Chart -> Hover for tooltips -> Provides a quick visual summary of experience types (YouTube vs. Crypto). -> Chart.js/Canvas.
-    - Key Stat (100k+ subs): Impact/Inform -> Animated Number Counter -> Animates when scrolled into view -> Draws attention to the key quantitative achievement. -> JS + Intersection Observer.
-    - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <!-- Updated Palette: Blue & Purple (Light purple background, Dark purple text, Blue & Purple accents) -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #F8F8F8;
-            color: #333333;
+            background-color: #EAE4F3;
+            color: #292135;
         }
         .chart-container {
             position: relative;
@@ -41,59 +32,59 @@
         }
     </style>
 </head>
-<body class="bg-[#F8F8F8] text-[#333333]">
+<body class="bg-[#EAE4F3] text-[#292135]">
 
-    <header class="bg-[#e0ffff]/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <div class="text-2xl font-bold text-[#FF6600]">
+            <div class="text-2xl font-bold text-[#6A5ACD]">
                 KS
             </div>
             <div class="hidden md:flex space-x-6 items-center">
-                <a href="#profile" class="text-[#333333] hover:text-[#0099CC] transition duration-300">Profile</a>
-                <a href="#skills" class="text-[#333333] hover:text-[#0099CC] transition duration-300">Skills</a>
-                <a href="#experience" class="text-[#333333] hover:text-[#0099CC] transition duration-300">Experience</a>
-                <a href="#contact" class="bg-[#FF6600] text-white px-4 py-2 rounded-full hover:bg-[#FF8533] transition duration-300">Contact</a>
+                <a href="#profile" class="text-[#292135] hover:text-[#8A2BE2] transition duration-300">Profile</a>
+                <a href="#skills" class="text-[#292135] hover:text-[#8A2BE2] transition duration-300">Skills</a>
+                <a href="#experience" class="text-[#292135] hover:text-[#8A2BE2] transition duration-300">Experience</a>
+                <a href="#contact" class="bg-[#6A5ACD] text-white px-4 py-2 rounded-full hover:bg-[#8A2BE2] transition duration-300">Contact</a>
             </div>
             <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-[#333333] focus:outline-none">
+                <button id="mobile-menu-button" class="text-[#292135] focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
             </div>
         </nav>
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-            <a href="#profile" class="block py-2 text-[#333333] hover:text-[#0099CC]">Profile</a>
-            <a href="#skills" class="block py-2 text-[#333333] hover:text-[#0099CC]">Skills</a>
-            <a href="#experience" class="block py-2 text-[#333333] hover:text-[#0099CC]">Experience</a>
-            <a href="#contact" class="block mt-2 text-center bg-[#FF6600] text-white px-4 py-2 rounded-full hover:bg-[#FF8533]">Contact</a>
+            <a href="#profile" class="block py-2 text-[#292135] hover:text-[#8A2BE2]">Profile</a>
+            <a href="#skills" class="block py-2 text-[#292135] hover:text-[#8A2BE2]">Skills</a>
+            <a href="#experience" class="block py-2 text-[#292135] hover:text-[#8A2BE2]">Experience</a>
+            <a href="#contact" class="block mt-2 text-center bg-[#6A5ACD] text-white px-4 py-2 rounded-full hover:bg-[#8A2BE2]">Contact</a>
         </div>
     </header>
 
     <main class="container mx-auto px-6 py-12">
 
         <section id="hero" class="text-center py-20">
-            <h1 class="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-[#FF6600]">Kuldeep Swain</h1>
-            <p class="text-xl md:text-2xl text-[#333333] mt-4">Community Moderator & Growth Strategist</p>
+            <h1 class="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#6A5ACD] to-[#8A2BE2] pb-2">Kuldeep Swain</h1>
+            <p class="text-xl md:text-2xl text-[#292135] mt-4">Community Moderator & Growth Strategist</p>
         </section>
 
         <section id="profile" class="py-16">
-             <div class="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
-                <h2 class="text-3xl font-bold text-center mb-6 text-[#333333]">Professional Profile</h2>
-                <p class="text-lg text-[#555555] leading-relaxed text-center">
-                    Experienced moderator with 3+ years in online community management, starting at age 15. I have a proven ability to maintain positive environments, enforce guidelines, and manage real-time user interactions. I recently completed a three-month AI course, enhancing efficiency and bringing creative, AI-driven solutions to community growth and support.
+             <div class="max-w-4xl mx-auto bg-[#E0F2F9] p-8 rounded-2xl shadow-lg border border-[#ADD8E6]">
+                <h2 class="text-3xl font-bold text-center mb-6 text-[#292135]">Professional Profile</h2>
+                <p class="text-lg text-[#4A3C56] leading-relaxed text-center">
+                    Experienced moderator with 3 years in online community management, starting at age 15. I have a proven ability to maintain positive environments, enforce guidelines, and manage real-time user interactions. I recently completed a three-month AI course, enhancing efficiency and bringing creative, AI-driven solutions to community growth and support.
                 </p>
             </div>
         </section>
         
         <section class="py-16 grid md:grid-cols-2 gap-12 items-center">
-            <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200 text-center">
-                <h3 class="text-2xl font-bold mb-4 text-[#333333]">Key Achievement</h3>
-                <p class="text-[#555555] mb-4">Managed a YouTube channel, contributing to its growth to over:</p>
-                <div id="subscriber-count" class="text-7xl font-bold text-[#FF6600]" data-target="100000">0</div>
-                <p class="text-[#555555] mt-2">Subscribers</p>
+            <div class="bg-[#E0F2F9] p-8 rounded-2xl shadow-lg border border-[#ADD8E6] text-center">
+                <h3 class="text-2xl font-bold mb-4 text-[#292135]">Key Achievement</h3>
+                <p class="text-[#4A3C56] mb-4">Managed a YouTube channel, contributing to its growth to over:</p>
+                <div id="subscriber-count" class="text-7xl font-bold text-[#6A5ACD]" data-target="100000">0</div>
+                <p class="text-[#4A3C56] mt-2">Subscribers</p>
             </div>
-            <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
-                <h3 class="text-2xl font-bold mb-6 text-center text-[#333333]">Experience Overview</h3>
-                <p class="text-center text-[#555555] mb-4">This chart provides a summary of my professional experience, categorized by industry. You can explore detailed roles in the interactive timeline below.</p>
+            <div class="bg-[#E0F2F9] p-8 rounded-2xl shadow-lg border border-[#ADD8E6]">
+                <h3 class="text-2xl font-bold mb-6 text-center text-[#292135]">Experience Overview</h3>
+                <p class="text-center text-[#4A3C56] mb-4">This chart provides a summary of my professional experience, categorized by industry. You can explore detailed roles in the interactive timeline below.</p>
                 <div class="chart-container">
                     <canvas id="experienceChart"></canvas>
                 </div>
@@ -102,91 +93,91 @@
 
 
         <section id="skills" class="py-16">
-            <h2 class="text-3xl font-bold text-center mb-12 text-[#333333]">Core Competencies</h2>
-            <p class="text-center max-w-3xl mx-auto text-[#555555] mb-12">I possess a versatile skill set focused on community building, strategic planning, and creative problem-solving. These competencies allow me to effectively manage online spaces and drive brand growth.</p>
+            <h2 class="text-3xl font-bold text-center mb-12 text-[#292135]">Core Competencies</h2>
+            <p class="text-center max-w-3xl mx-auto text-[#4A3C56] mb-12">I possess a versatile skill set focused on community building, strategic planning, and creative problem-solving. These competencies allow me to effectively manage online spaces and drive brand growth.</p>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                <div class="skill-card bg-white p-6 rounded-xl shadow-md text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-200">
-                    <div class="text-4xl text-[#FF6600] mb-3">🧭</div>
-                    <h3 class="font-semibold text-[#333333]">Strategic Planning</h3>
+                <div class="skill-card bg-[#E0F2F9] p-6 rounded-xl shadow-md text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-[#ADD8E6]">
+                    <div class="text-4xl text-[#6A5ACD] mb-3">🧭</div>
+                    <h3 class="font-semibold text-[#292135]">Strategic Planning</h3>
                 </div>
-                <div class="skill-card bg-white p-6 rounded-xl shadow-md text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-200">
-                    <div class="text-4xl text-[#FF6600] mb-3">💡</div>
-                    <h3 class="font-semibold text-[#333333]">Problem Solving</h3>
+                <div class="skill-card bg-[#E0F2F9] p-6 rounded-xl shadow-md text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-[#ADD8E6]">
+                    <div class="text-4xl text-[#6A5ACD] mb-3">💡</div>
+                    <h3 class="font-semibold text-[#292135]">Problem Solving</h3>
                 </div>
-                <div class="skill-card bg-white p-6 rounded-xl shadow-md text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-200">
-                    <div class="text-4xl text-[#FF6600] mb-3">🎨</div>
-                    <h3 class="font-semibold text-[#333333]">Creative Thinking</h3>
+                <div class="skill-card bg-[#E0F2F9] p-6 rounded-xl shadow-md text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-[#ADD8E6]">
+                    <div class="text-4xl text-[#6A5ACD] mb-3">🎨</div>
+                    <h3 class="font-semibold text-[#292135]">Creative Thinking</h3>
                 </div>
-                <div class="skill-card bg-white p-6 rounded-xl shadow-md text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-200">
-                    <div class="text-4xl text-[#FF6600] mb-3">🚀</div>
-                    <h3 class="font-semibold text-[#333333]">Brand Development</h3>
+                <div class="skill-card bg-[#E0F2F9] p-6 rounded-xl shadow-md text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-[#ADD8E6]">
+                    <div class="text-4xl text-[#6A5ACD] mb-3">🚀</div>
+                    <h3 class="font-semibold text-[#292135]">Brand Development</h3>
                 </div>
-                <div class="skill-card bg-white p-6 rounded-xl shadow-md text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-200">
-                    <div class="text-4xl text-[#FF6600] mb-3">🤝</div>
-                    <h3 class="font-semibold text-[#333333]">Negotiation</h3>
+                <div class="skill-card bg-[#E0F2F9] p-6 rounded-xl shadow-md text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-[#ADD8E6]">
+                    <div class="text-4xl text-[#6A5ACD] mb-3">🤝</div>
+                    <h3 class="font-semibold text-[#292135]">Negotiation</h3>
                 </div>
-                <div class="skill-card bg-white p-6 rounded-xl shadow-md text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-200">
-                    <div class="text-4xl text-[#FF6600] mb-3">🌍</div>
-                    <h3 class="font-semibold text-[#333333]">Community Orientation</h3>
+                <div class="skill-card bg-[#E0F2F9] p-6 rounded-xl shadow-md text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-[#ADD8E6]">
+                    <div class="text-4xl text-[#6A5ACD] mb-3">🌍</div>
+                    <h3 class="font-semibold text-[#292135]">Community Orientation</h3>
                 </div>
-                <div class="skill-card bg-white p-6 rounded-xl shadow-md text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-200">
-                    <div class="text-4xl text-[#FF6600] mb-3">🔄</div>
-                    <h3 class="font-semibold text-[#333333]">Adaptability</h3>
+                <div class="skill-card bg-[#E0F2F9] p-6 rounded-xl shadow-md text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-[#ADD8E6]">
+                    <div class="text-4xl text-[#6A5ACD] mb-3">🔄</div>
+                    <h3 class="font-semibold text-[#292135]">Adaptability</h3>
                 </div>
-                <div class="skill-card bg-white p-6 rounded-xl shadow-md text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-200">
-                    <div class="text-4xl text-[#FF6600] mb-3">✨</div>
-                    <h3 class="font-semibold text-[#333333]">Innovative Methods</h3>
+                <div class="skill-card bg-[#E0F2F9] p-6 rounded-xl shadow-md text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-[#ADD8E6]">
+                    <div class="text-4xl text-[#6A5ACD] mb-3">✨</div>
+                    <h3 class="font-semibold text-[#292135]">Innovative Methods</h3>
                 </div>
             </div>
         </section>
         
         <section id="languages" class="py-16">
-            <h2 class="text-3xl font-bold text-center mb-6 text-[#333333]">Languages</h2>
-            <div class="max-w-lg mx-auto bg-white p-8 rounded-2xl shadow-lg border border-gray-200 text-center">
-                <p class="text-lg font-medium text-[#555555] mb-2">English: <span class="text-lg text-[#0099CC]">Fluent</span></p>
-                <p class="text-lg font-medium text-[#555555]">Hindi: <span class="text-lg text-[#0099CC]">Fluent</span></p>
+            <h2 class="text-3xl font-bold text-center mb-6 text-[#292135]">Languages</h2>
+            <div class="max-w-lg mx-auto bg-[#E0F2F9] p-8 rounded-2xl shadow-lg border border-[#ADD8E6] text-center">
+                <p class="text-lg font-medium text-[#4A3C56] mb-2">English: <span class="text-lg text-[#8A2BE2]">Fluent</span></p>
+                <p class="text-lg font-medium text-[#4A3C56]">Hindi: <span class="text-lg text-[#8A2BE2]">Fluent</span></p>
             </div>
         </section>
 
         <section id="experience" class="py-16">
-            <h2 class="text-3xl font-bold text-center mb-4 text-[#333333]">Professional Experience</h2>
-            <p class="text-center max-w-3xl mx-auto text-[#555555] mb-12">Here is an interactive timeline of my work experience. You can filter by category to view roles relevant to your interests. Click on any role to see more details about my responsibilities and achievements.</p>
+            <h2 class="text-3xl font-bold text-center mb-4 text-[#292135]">Professional Experience</h2>
+            <p class="text-center max-w-3xl mx-auto text-[#4A3C56] mb-12">Here is an interactive timeline of my work experience. You can filter by category to view roles relevant to your interests. Click on any role to see more details about my responsibilities and achievements.</p>
             <div class="flex justify-center space-x-4 mb-12">
-                <button class="filter-btn bg-[#FF6600] text-white px-5 py-2 rounded-full hover:bg-[#FF8533] transition duration-300" data-filter="all">All</button>
-                <button class="filter-btn bg-white text-[#333333] px-5 py-2 rounded-full hover:bg-gray-100 transition duration-300 border border-gray-200" data-filter="youtube">YouTube</button>
-                <button class="filter-btn bg-white text-[#333333] px-5 py-2 rounded-full hover:bg-gray-100 transition duration-300 border border-gray-200" data-filter="crypto">Crypto</button>
+                <button class="filter-btn bg-[#6A5ACD] text-white px-5 py-2 rounded-full hover:bg-[#8A2BE2] transition duration-300" data-filter="all">All</button>
+                <button class="filter-btn bg-[#E0F2F9] text-[#292135] px-5 py-2 rounded-full hover:bg-gray-100 transition duration-300 border border-[#ADD8E6]" data-filter="youtube">YouTube</button>
+                <button class="filter-btn bg-[#E0F2F9] text-[#292135] px-5 py-2 rounded-full hover:bg-gray-100 transition duration-300 border border-[#ADD8E6]" data-filter="crypto">Crypto</button>
             </div>
             <div id="timeline-container" class="relative max-w-3xl mx-auto">
             </div>
         </section>
 
-        <section id="contact" class="py-16 text-center bg-white rounded-2xl shadow-lg border border-gray-200">
-            <h2 class="text-3xl font-bold mb-4 text-[#333333]">Get In Touch</h2>
-            <p class="text-[#555555] mb-8 max-w-xl mx-auto">I'm always open to discussing new projects, creative ideas, or opportunities to be part of an ambitious vision. Feel free to reach out.</p>
+        <section id="contact" class="py-16 text-center bg-[#E0F2F9] rounded-2xl shadow-lg border border-[#ADD8E6]">
+            <h2 class="text-3xl font-bold mb-4 text-[#292135]">Get In Touch</h2>
+            <p class="text-[#4A3C56] mb-8 max-w-xl mx-auto">I'm always open to discussing new projects, creative ideas, or opportunities to be part of an ambitious vision. Feel free to reach out.</p>
             <div class="flex flex-wrap justify-center items-center gap-6">
-                <a href="mailto:kuldeepswain746@gmail.com" class="text-lg text-[#0099CC] hover:underline">kuldeepswain746@gmail.com</a>
+                <a href="mailto:kuldeepswain746@gmail.com" class="text-lg text-[#8A2BE2] hover:underline">kuldeepswain746@gmail.com</a>
                 <span class="hidden md:block text-gray-300">|</span>
-                <p class="text-lg text-[#333333]">+91 8763242110</p>
+                <p class="text-lg text-[#292135]">+91 8763242110</p>
                 <span class="hidden md:block text-gray-300">|</span>
-                <p class="text-lg text-[#333333]">Bhubaneshwar, India</p>
+                <p class="text-lg text-[#292135]">Bhubaneshwar, India</p>
             </div>
             <div class="flex justify-center flex-wrap space-x-6 mt-8 text-xl font-semibold">
-                <a href="https://www.instagram.com/sujal746_" target="_blank" class="text-[#333333] hover:text-[#0099CC] transition duration-300">
+                <a href="https://www.instagram.com/sujal746_" target="_blank" class="text-[#292135] hover:text-[#8A2BE2] transition duration-300">
                     Instagram: @sujal746_
                 </a>
-                <a href="https://t.me/sujal746" target="_blank" class="text-[#333333] hover:text-[#0099CC] transition duration-300">
+                <a href="https://t.me/sujal746" target="_blank" class="text-[#292135] hover:text-[#8A2BE2] transition duration-300">
                     Telegram: @sujal746
                 </a>
-                <a href="https://discord.com/users/sujal746" target="_blank" class="text-[#333333] hover:text-[#0099CC] transition duration-300">
+                <a href="https://discord.com/users/sujal746" target="_blank" class="text-[#292135] hover:text-[#8A2BE2] transition duration-300">
                     Discord: sujal746
                 </a>
-                <a href="https://x.com/kuldeepswain1" target="_blank" class="text-[#333333] hover:text-[#0099CC] transition duration-300">
+                <a href="https://x.com/kuldeepswain1" target="_blank" class="text-[#292135] hover:text-[#8A2BE2] transition duration-300">
                     X: @kuldeepswain1
                 </a>
             </div>
         </section>
     </main>
-    <footer class="text-center py-6 text-[#999999]">
+    <footer class="text-center py-6 text-[#5C4E6D]">
         <p>&copy; 2025 Kuldeep Swain. All Rights Reserved.</p>
     </footer>
 
@@ -238,6 +229,7 @@
                     details: [
                         "Contributes to maintaining a positive and smooth environment for users within the crypto community."
                     ]
+                    
                 },
                 {
                     role: "Moderator",
@@ -255,17 +247,17 @@
             const filterBtns = document.querySelectorAll('.filter-btn');
 
             const createTimelineItem = (item) => {
-                const detailsHtml = item.details.map(d => `<li class="text-[#555555]">${d}</li>`).join('');
+                const detailsHtml = item.details.map(d => `<li class="text-[#4A3C56]">${d}</li>`).join('');
                 const itemEl = document.createElement('div');
                 itemEl.className = 'timeline-item mb-8 flex justify-between items-center w-full';
                 itemEl.innerHTML = `
                     <div class="order-1 w-5/12"></div>
-                    <div class="z-20 flex items-center order-1 bg-[#FF6600] shadow-xl w-8 h-8 rounded-full">
+                    <div class="z-20 flex items-center order-1 bg-[#6A5ACD] shadow-xl w-8 h-8 rounded-full">
                         <h1 class="mx-auto font-semibold text-lg text-white"></h1>
                     </div>
-                    <div class="order-1 bg-white rounded-lg shadow-xl w-5/12 px-6 py-4 cursor-pointer timeline-card border border-gray-200">
-                        <h3 class="font-bold text-[#333333] text-lg">${item.role}</h3>
-                        <p class="text-sm font-medium text-[#0099CC]">${item.company} <span class="font-normal text-[#999999]">| ${item.period}</span></p>
+                    <div class="order-1 bg-[#E0F2F9] rounded-lg shadow-xl w-5/12 px-6 py-4 cursor-pointer timeline-card border border-[#ADD8E6]">
+                        <h3 class="font-bold text-[#292135] text-lg">${item.role}</h3>
+                        <p class="text-sm font-medium text-[#8A2BE2]">${item.company} <span class="font-normal text-[#776C82]">| ${item.period}</span></p>
                         <div class="timeline-details hidden mt-3">
                             <ul class="list-disc list-inside space-y-1">
                                 ${detailsHtml}
@@ -277,7 +269,7 @@
             };
 
             const renderTimeline = (filter) => {
-                timelineContainer.innerHTML = '<div class="absolute border-l-2 border-gray-300 h-full left-1/2 -translate-x-1/2"></div>';
+                timelineContainer.innerHTML = '<div class="absolute border-l-2 border-[#ADD8E6] h-full left-1/2 -translate-x-1/2"></div>';
                 const filteredData = filter === 'all' ? experienceData : experienceData.filter(item => item.type === filter);
 
                 filteredData.forEach((item, index) => {
@@ -298,14 +290,14 @@
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
                     filterBtns.forEach(b => {
-                        b.classList.remove('bg-[#FF6600]', 'text-white');
-                        b.classList.add('bg-white', 'text-[#333333]');
-                        b.classList.remove('hover:bg-[#FF8533]');
+                        b.classList.remove('bg-[#6A5ACD]', 'text-white');
+                        b.classList.add('bg-[#E0F2F9]', 'text-[#292135]');
+                        b.classList.remove('hover:bg-[#8A2BE2]');
                         b.classList.add('hover:bg-gray-100');
                     });
-                    btn.classList.add('bg-[#FF6600]', 'text-white');
-                    btn.classList.remove('bg-white', 'text-[#333333]');
-                    btn.classList.add('hover:bg-[#FF8533]');
+                    btn.classList.add('bg-[#6A5ACD]', 'text-white');
+                    btn.classList.remove('bg-[#E0F2F9]', 'text-[#292135]');
+                    btn.classList.add('hover:bg-[#8A2BE2]');
                     btn.classList.remove('hover:bg-gray-100');
                     renderTimeline(btn.dataset.filter);
                 });
@@ -356,14 +348,15 @@
                         label: 'Number of Roles',
                         data: [youtubeCount, cryptoCount],
                         backgroundColor: [
-                            'rgba(255, 102, 0, 0.6)',
-                            'rgba(0, 153, 204, 0.6)'
+                            'rgba(144, 238, 144, 0.6)', // Light Green
+                            'rgba(195, 161, 230, 0.6)'  // Light Purple
                         ],
                         borderColor: [
-                            'rgba(255, 102, 0, 1)',
-                            'rgba(0, 153, 204, 1)'
+                            'rgba(144, 238, 144, 1)',   // Light Green
+                            'rgba(195, 161, 230, 1)'    // Light Purple
                         ],
-                        borderWidth: 1
+                        borderWidth: 1,
+                        barPercentage: 0.5
                     }]
                 },
                 options: {
@@ -402,8 +395,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
