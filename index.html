@@ -15,7 +15,9 @@
             font-family: 'Inter', sans-serif;
             background-color: #EAE4F3;
             color: #292135;
+            transition: background-color 0.5s, color 0.5s;
         }
+
         .chart-container {
             position: relative;
             width: 100%;
@@ -25,16 +27,28 @@
             height: 300px;
             max-height: 400px;
         }
+        
+        #background-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+        }
+
         @media (min-width: 768px) {
             .chart-container {
                 height: 350px;
             }
         }
+        
     </style>
 </head>
 <body class="bg-[#EAE4F3] text-[#292135]">
+    <canvas id="background-canvas"></canvas>
 
-    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+    <header class="bg-[#E0F2F9] sticky top-0 z-50 shadow-sm">
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
             <div class="text-2xl font-bold text-[#6A5ACD]">
                 KS
@@ -337,10 +351,12 @@
 
             observer.observe(counterElement);
 
+            let experienceChart;
+            
             const ctx = document.getElementById('experienceChart').getContext('2d');
             const youtubeCount = experienceData.filter(e => e.type === 'youtube').length;
             const cryptoCount = experienceData.filter(e => e.type === 'crypto').length;
-            const experienceChart = new Chart(ctx, {
+            experienceChart = new Chart(ctx, {
                 type: 'bar',
                 data: {
                     labels: ['YouTube Community', 'Crypto Projects'],
@@ -391,7 +407,65 @@
                     }
                 }
             });
-        });
-    </script>
-</body>
-</html>
+
+            // New Particle Animation
+            const canvas = document.getElementById('background-canvas');
+            const ctxCanvas = canvas.getContext('2d');
+            let particles = [];
+            const particleCount = 100;
+
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.vx = (Math.random() - 0.5) * 0.5;
+                    this.vy = (Math.random() - 0.5) * 0.5;
+                    this.radius = Math.random() * 1.5 + 0.5;
+                    this.color = `rgba(106, 90, 205, ${Math.random() * 0.5 + 0.2})`; // Light purple color with transparency
+                }
+
+                draw() {
+                    ctxCanvas.beginPath();
+                    ctxCanvas.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+                    ctxCanvas.fillStyle = this.color;
+                    ctxCanvas.fill();
+                }
+
+                update() {
+                    // Reverse direction if a particle hits a boundary
+                    if (this.x + this.radius > canvas.width || this.x - this.radius < 0) {
+                        this.vx = -this.vx;
+                    }
+                    if (this.y + this.radius > canvas.height || this.y - this.radius < 0) {
+                        this.vy = -this.vy;
+                    }
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    this.draw();
+                }
+            }
+
+            function initParticles() {
+                particles = [];
+                for (let i = 0; i < particleCount; i++) {
+                    particles.push(new Particle());
+                }
+            }
+
+            function animateParticles() {
+                ctxCanvas.clearRect(0, 0, canvas.width, canvas.height);
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                }
+                requestAnimationFrame(animateParticles);
+            }
+
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+            initParticles();
+            animateParticles();
